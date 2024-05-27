@@ -13,8 +13,10 @@ interface CardProps {
 export function Card({nome, descricao, quantidade} : CardProps){
 
     return(
-        <div className="card">
+        <div className="card"> 
+              
             <div className="card-itens">
+
                 <div id="item-nome" className='item'>
                     <p>{nome}</p>
                 </div>

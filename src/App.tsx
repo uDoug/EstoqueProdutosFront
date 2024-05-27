@@ -11,7 +11,7 @@ function App() {
     <div className='app'>
       <h1>Estoque</h1>  
       <div className="card-grid">
-        {data?.map(productData => <Card nome={productData.nome} descricao={productData.descricao} quantidade={productData.quantidade} />)}
+        {data?.map(productData => <Card id={productData.id} nome={productData.nome} descricao={productData.descricao} quantidade={productData.quantidade} />)}
       </div>  
     </div>
   )
