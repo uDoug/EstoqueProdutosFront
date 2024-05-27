@@ -1,0 +1,17 @@
+.app{   
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-grid{
+    width: 50%;
+    height: 80%;
+    background-color: gray;
+    border-radius: 30px; 
+
+}

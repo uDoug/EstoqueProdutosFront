@@ -1,0 +1,55 @@
+.card{  
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: baseline;
+    gap: 10px;  
+    
+}
+
+.card-itens{
+    display: flex;
+    gap: 1px;
+    color: black;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.item{
+    background-color: white;
+    border-radius: 10px;
+    border: solid 1px;
+    padding: 5px;
+}
+
+#item-nome{
+    
+    width: 20%;
+}
+
+#item-descricao{
+    width: 50%;
+    
+    
+}
+
+#item-quantidade{
+    display: flex;
+    justify-content: center;
+    width: 8%;
+    
+}
+
+.card-buttons{
+    display: flex;
+    height: 100%;
+    gap: 5px;
+    margin-left: 10px;
+    
+}
+.btn:hover{
+    cursor: pointer;
+    scale: 1.2;
+        
+}
