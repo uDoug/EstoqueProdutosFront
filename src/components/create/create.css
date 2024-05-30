@@ -63,3 +63,20 @@
     background-color: #3a44f8;
     transform: scale(1);
 }
+
+.createTop{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.createClose{
+    background-color: red;
+    height: 50%;
+}
+
+.createClose:hover{
+    border: red;
+    scale: 1.1;
+    
+}

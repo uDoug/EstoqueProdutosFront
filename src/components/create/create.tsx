@@ -26,6 +26,8 @@ interface CreateProps{
     closeCreate(): void
 }
 
+
+
 export function Create({closeCreate}: CreateProps) {
 
     const [nome, setNome] = useState("");
@@ -56,8 +58,11 @@ export function Create({closeCreate}: CreateProps) {
 
         <div className="createOverflow">
             <div className="createContainer">
-                <h2>Cadastre um novo produto</h2>
-
+                <div className="createTop">
+                    <h2>Cadastre um novo produto</h2>
+                    <button className="createClose" onClick={closeCreate}>X</button>  
+                </div>
+                
                 <form className="creatInputs">
                     <Input label="Nome" value={nome} updateValue={setNome}/>
                     <Input label="Descrição" value={descricao} updateValue={setDescricao}/>
