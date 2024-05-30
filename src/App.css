@@ -6,12 +6,91 @@
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
+    
 }
 
-.card-grid{
+.container{
     width: 50%;
-    height: 80%;
+    height: 75%;
     background-color: gray;
     border-radius: 30px; 
+    padding: 15px;
+    
+}
 
+.top{
+    width: 100%;
+    display: flex;
+}
+
+.searchBar{
+    width: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.divAdd{
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    margin-bottom: 5px;
+    margin-right: 25px;
+}
+
+.btnAdicionar{
+    background-color: rgb(38, 200, 38);
+    font-weight: bold;
+    width: 15%;
+    
+}
+
+.btnAdicionar:hover{
+    scale: 1.1;
+    cursor: pointer;
+    border: solid 1px rgb(38, 200, 38);
+}
+
+h1{
+    margin: 15px;
+}
+
+.titles{
+    display: flex;
+    width: 100%;
+    
+
+}
+
+.titles h5{
+    margin: 0;
+}
+
+
+
+#nome{  
+    width: 20%;
+    margin-left: 10px;
+    margin-right: 15px;
+}
+
+#descricao{
+    width: 50%;
+    margin-right: 5px;
+    
+}
+
+#quantidade{
+    display: flex;
+    justify-content: center;
+    width: 8%;
+    
+}
+
+@media (max-width : 1350px) {
+    #descricao{
+       width: 42%; 
+    }
+    
 }

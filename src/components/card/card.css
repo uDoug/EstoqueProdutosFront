@@ -1,6 +1,4 @@
 .card{  
-    
-    padding: 20px;
     justify-content: center;
     align-items: baseline;
     gap: 10px;  
@@ -19,7 +17,7 @@
 .item{
     background-color: white;
     border-radius: 10px;
-    border: solid 1px;
+    border: solid 1px black;
     padding: 5px;
 }
 
