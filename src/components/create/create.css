@@ -1,0 +1,65 @@
+.createOverflow {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.4);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 999;
+}
+
+.createContainer {
+    background-color:gray;
+    padding: 24px;
+    height: 60%;
+    width: 60%;
+    border-radius: 24px;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.createContainer  h2 {
+    font-size: 32px;
+}
+
+.creatInputs {
+    width: calc(100% - 24px);
+}
+
+.createContainer input {
+    padding: 12px;
+    border: none;
+    color: rgba(0,0,0,0.9);
+    font-size: 18px;
+    line-height: 24px;
+    border-radius: 12px;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 12px;
+}
+
+.createContainer label {
+    color: #242424;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.btn-create {
+    position: initial;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.btn-create:hover {
+    background-color: #3a44f8;
+    transform: scale(1);
+}

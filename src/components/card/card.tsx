@@ -3,7 +3,7 @@ import imgEditar from './cardImages/editar.png'
 import imgDeletar from './cardImages/deletar.png'
 
 interface CardProps {
-    id: number,
+    id?: number,
     nome: string,
     descricao: string,
     quantidade: number
