@@ -1,19 +1,21 @@
 import axios, { AxiosPromise } from "axios"
-import { ProductData } from "../interface/ProductData";
+//import { ProductData } from "../interface/ProductData";
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 const API_URL = 'http://localhost:8080';
 
-const postData = async (data : ProductData): AxiosPromise<number> => {
-    const response = axios.post(API_URL + '/products', data);
+
+
+const deleteData = async (id : number): AxiosPromise => {
+    const response = axios.delete(API_URL + `/products/${id}`);
     return response;
 }
 
-
-export function useProductDataMutate(){
+export function useProductDataDelete(){
     const queryClient = useQueryClient();
     const mutate = useMutation({
-        mutationFn: postData,
+        
+        mutationFn: deleteData,
         retry: 2,
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['productData']})

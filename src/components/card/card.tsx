@@ -1,16 +1,26 @@
 import './card.css'
 import imgEditar from './cardImages/editar.png'
 import imgDeletar from './cardImages/deletar.png'
+import { useProductDataDelete } from '../../hooks/useProductDataDelete'
+
 
 interface CardProps {
-    id?: number,
+    id: number,
     nome: string,
     descricao: string,
     quantidade: number
 
 }
 
-export function Card({nome, descricao, quantidade} : CardProps){
+
+
+export function Card({ id, nome, descricao, quantidade} : CardProps){
+
+    const { mutate: deleteProduct } = useProductDataDelete();
+
+    function deleteCard(idCard: number) {
+        deleteProduct(idCard);
+    } 
 
     return(
         <div className="card"> 
@@ -28,7 +38,7 @@ export function Card({nome, descricao, quantidade} : CardProps){
                 </div>
                 <div className="card-buttons">
                     <img src={imgEditar} alt="Editar" title='Editar' width={70} height={70} className='btn'/>   
-                    <img src={imgDeletar} alt="Deletar" title='Deletar' width={70} height={70} className='btn'/> 
+                    <img src={imgDeletar} alt="Deletar" title='Deletar' width={70} height={70} className='btn' onClick={() => deleteCard(id)}/> 
                 </div>
             </div>
            

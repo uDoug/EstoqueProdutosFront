@@ -36,7 +36,7 @@ export function Create({closeCreate}: CreateProps) {
     const  { mutate, isSuccess } = useProductDataMutate(); 
 
     function submit() {
-        const productData: ProductData = {
+        const productData: ProductData = {           
             nome,
             descricao,
             quantidade
