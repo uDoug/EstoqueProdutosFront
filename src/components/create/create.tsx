@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useProductDataMutate } from "../../hooks/useProductDataMutate";
-import { ProductData } from "../../interface/ProductData";
+//import { ProductData } from "../../interface/ProductData";
 import './create.css'
 import toast from "react-hot-toast";
 
@@ -34,7 +34,7 @@ export function Create({closeCreate}: CreateProps) {
 
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [quantidade, setQuantidade] = useState();
+    const [quantidade, setQuantidade] = useState(Number);
     const  { mutate, isSuccess } = useProductDataMutate(); 
 
     function submit() {
