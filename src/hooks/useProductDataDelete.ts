@@ -2,13 +2,15 @@ import axios, { AxiosPromise } from "axios"
 //import { ProductData } from "../interface/ProductData";
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://estoqueprodutos-production.up.railway.app';
 
 
 
 const deleteData = async (id : number): AxiosPromise => {
-    const response = axios.delete(API_URL + `/products/${id}`);
-    return response;
+    
+        const response = await axios.delete(API_URL + `/products/${id}`);
+        return response;
+    
 }
 
 export function useProductDataDelete(){

@@ -2,7 +2,7 @@ import axios, { AxiosPromise } from "axios"
 import { ProductData } from "../interface/ProductData";
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://estoqueprodutos-production.up.railway.app';
 
 const updateData = async (data : ProductData): AxiosPromise => {
     const response = axios.put(API_URL + `/products/${data.id}`, data);
