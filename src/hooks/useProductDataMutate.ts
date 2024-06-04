@@ -1,11 +1,20 @@
-import axios, { AxiosPromise } from "axios"
+import axios from "axios"
 import { ProductData } from "../interface/ProductData";
 import { useMutation, useQueryClient } from "@tanstack/react-query"
+import toast from "react-hot-toast";
+import { fatchData } from "./useProductData";
 
 const API_URL = 'http://localhost:8080';
 
-const postData = async (data : ProductData): AxiosPromise<number> => {
+const postData = async (data : ProductData) => {
+    const {data : products} = await fatchData();
+    const verification = products.find(p => p.nome.toLowerCase() == data.nome.toLowerCase() && p.descricao.toLowerCase() == data.descricao.toLowerCase());
+    if (verification){
+        return toast.error('O produto ja existe')
+    }
+
     const response = axios.post(API_URL + '/products', data);
+    toast.success("Criado com Sucesso");
     return response;
 }
 

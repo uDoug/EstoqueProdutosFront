@@ -4,6 +4,7 @@ import { Card } from './components/card/card';
 import { SearchBar } from './components/searchBar/searchBar';
 import { useProductData } from './hooks/useProductData';
 import { Create } from './components/create/create';
+import toast from 'react-hot-toast';
 
 //import { ProductData } from './interface/ProductData';
 
@@ -17,7 +18,7 @@ function App() {
   const handlesOpenModal = () => {
     setIsCreateOpen(prev => !prev)
   }  
-
+  
   return (
     <div className='app'>
       <h1>Estoque</h1> 

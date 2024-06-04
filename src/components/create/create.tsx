@@ -47,10 +47,9 @@ export function Create({closeCreate}: CreateProps) {
 
     useEffect(() => {
         if(isSuccess){
-            closeCreate()
-            
-        }
-        
+            closeCreate()          
+        } 
+               
     }, [isSuccess])
 
 

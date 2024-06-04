@@ -4,8 +4,11 @@ import { useQuery } from "@tanstack/react-query"
 
 const API_URL = 'http://localhost:8080';
 
-const fatchData = async (): AxiosPromise<ProductData[]> => {
-    const response = axios.get(API_URL + '/products');
+
+
+export const fatchData = async (): AxiosPromise<ProductData[]> => {
+
+    const response = await axios.get<ProductData[]>(API_URL + '/products');
     return response;
 }
 
