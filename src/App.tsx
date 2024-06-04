@@ -9,8 +9,10 @@ import { Create } from './components/create/create';
 
 
 function App() {
-  const { data } = useProductData();
+  let { data } = useProductData();
   const [isCreateOpen, setIsCreateOpen] = useState(false);
+  const [filter, setFilter] = useState("")
+  if (filter && data){ data = data.filter(n => n.nome.toLowerCase().startsWith(filter.toLowerCase()))}
 
   const handlesOpenModal = () => {
     setIsCreateOpen(prev => !prev)
@@ -26,7 +28,7 @@ function App() {
       <div className="container">
         <div className="top">
           <div className="searchBar">
-            <SearchBar /> 
+            <SearchBar filter={filter} setFilter={setFilter} /> 
           </div>
         </div>
 
@@ -44,7 +46,7 @@ function App() {
         </div>
           
         <div className="card-grid">
-          {data?.map(productData => <Card id={productData.id} nome={productData.nome} descricao={productData.descricao} quantidade={productData.quantidade} />)}
+          {data?.map(productData => <Card key={productData.id} id={productData.id} nome={productData.nome} descricao={productData.descricao} quantidade={productData.quantidade} />)}
           
         </div> 
 

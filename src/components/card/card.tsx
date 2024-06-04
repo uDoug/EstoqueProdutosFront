@@ -2,6 +2,9 @@ import './card.css'
 import imgEditar from './cardImages/editar.png'
 import imgDeletar from './cardImages/deletar.png'
 import { useProductDataDelete } from '../../hooks/useProductDataDelete'
+import { useState } from 'react';
+import { Update } from '../update/update';
+
 
 
 interface CardProps {
@@ -16,7 +19,16 @@ interface CardProps {
 
 export function Card({ id, nome, descricao, quantidade} : CardProps){
 
+    console.log({id, nome, descricao, quantidade});
+    
     const { mutate: deleteProduct } = useProductDataDelete();
+
+
+    const [isUpdateOpen, setIsUpdateOpen] = useState(false);
+
+    const handlesOpenModal = () => {
+        setIsUpdateOpen(prev => !prev)
+    }  
 
     function deleteCard(idCard: number) {
         deleteProduct(idCard);
@@ -37,9 +49,11 @@ export function Card({ id, nome, descricao, quantidade} : CardProps){
                      <p>{quantidade}</p>  
                 </div>
                 <div className="card-buttons">
-                    <img src={imgEditar} alt="Editar" title='Editar' width={70} height={70} className='btn'/>   
+                    <img src={imgEditar} alt="Editar" title='Editar' width={70} height={70} className='btn' onClick={handlesOpenModal}/>   
                     <img src={imgDeletar} alt="Deletar" title='Deletar' width={70} height={70} className='btn' onClick={() => deleteCard(id)}/> 
                 </div>
+
+                {isUpdateOpen && <Update closeUpdate={handlesOpenModal} id={id} />}
             </div>
            
 
