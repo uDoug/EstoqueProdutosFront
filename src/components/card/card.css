@@ -22,13 +22,13 @@
 }
 
 #item-nome{
-    
+    word-wrap:break-word;
     width: 20%;
 }
 
 #item-descricao{
     width: 50%;
-    
+    word-wrap:break-word;
     
 }
 
