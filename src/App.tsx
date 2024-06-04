@@ -4,7 +4,8 @@ import { Card } from './components/card/card';
 import { SearchBar } from './components/searchBar/searchBar';
 import { useProductData } from './hooks/useProductData';
 import { Create } from './components/create/create';
-import toast from 'react-hot-toast';
+
+
 
 //import { ProductData } from './interface/ProductData';
 
@@ -14,6 +15,8 @@ function App() {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [filter, setFilter] = useState("")
   if (filter && data){ data = data.filter(n => n.nome.toLowerCase().startsWith(filter.toLowerCase()))}
+
+  
 
   const handlesOpenModal = () => {
     setIsCreateOpen(prev => !prev)

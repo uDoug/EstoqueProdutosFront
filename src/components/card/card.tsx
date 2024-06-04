@@ -4,6 +4,8 @@ import imgDeletar from './cardImages/deletar.png'
 import { useProductDataDelete } from '../../hooks/useProductDataDelete'
 import { useState } from 'react';
 import { Update } from '../update/update';
+import Swal from 'sweetalert2'
+
 
 
 
@@ -31,7 +33,26 @@ export function Card({ id, nome, descricao, quantidade} : CardProps){
     }  
 
     function deleteCard(idCard: number) {
-        deleteProduct(idCard);
+        Swal.fire({
+            title: "Você tem certeza que deseja deletar?",
+            text: "Esta ação não poderá ser desfeita!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Sim, deletar!",
+            cancelButtonText: "Não"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                deleteProduct(idCard);
+              Swal.fire({
+                title: "Deletado!",
+                text: "O produto foi deletado com sucesso",
+                icon: "success"
+              });
+            }
+          });
+        
     } 
 
     return(
