@@ -52,7 +52,7 @@ export function Card({ id, nome, descricao, quantidade} : CardProps){
               });
             }
           });
-        
+         
     } 
 
     return(

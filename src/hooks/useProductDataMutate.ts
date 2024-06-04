@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import toast from "react-hot-toast";
 import { fatchData } from "./useProductData";
 
-const API_URL = 'http://localhost:8080';
+const API_URL = 'http://estoqueprodutos-production.up.railway.app';
 
 const postData = async (data : Omit<ProductData,'id'>) => {
     const {data : products} = await fatchData();
