@@ -74,7 +74,7 @@ export function Card({ id, nome, descricao, quantidade} : CardProps){
                     <img src={imgDeletar} alt="Deletar" title='Deletar' width={70} height={70} className='btn' onClick={() => deleteCard(id)}/> 
                 </div>
 
-                {isUpdateOpen && <Update closeUpdate={handlesOpenModal} id={id} />}
+                {isUpdateOpen && <Update closeUpdate={handlesOpenModal} id={id} nome={nome} descricao={descricao} quantidade={quantidade} />}
             </div>
            
 

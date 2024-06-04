@@ -2,20 +2,22 @@ import { useEffect, useState } from "react";
 import { useProductDataMutate } from "../../hooks/useProductDataMutate";
 import { ProductData } from "../../interface/ProductData";
 import './create.css'
+import toast from "react-hot-toast";
 
 
 interface InputProps {
     label: string,
     value: string | number,
+    type?: React.HTMLInputTypeAttribute,
     updateValue(value : any): void 
     
 }
 
-const Input = ({label, value, updateValue}: InputProps) => {
+const Input = ({label, value, updateValue, type="text"}: InputProps) => {
     return(
         <>
             <label>{label}</label>
-            <input value={value} onChange={e => updateValue(e.target.value)} ></input>
+            <input type={type} value={value} onChange={e => updateValue(e.target.value)} ></input>
         </>
        
 
@@ -32,24 +34,25 @@ export function Create({closeCreate}: CreateProps) {
 
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [quantidade, setQuantidade] = useState(0);
+    const [quantidade, setQuantidade] = useState();
     const  { mutate, isSuccess } = useProductDataMutate(); 
 
     function submit() {
-        const productData: ProductData = {           
-            nome,
-            descricao,
-            quantidade
+        
+        if(!nome || !descricao || !quantidade){
+            return toast.error('Todos os campos devem ser preenchidos')
         }
-          
-        mutate(productData)
+        if(quantidade < 0){
+            return toast.error('A quantidade não pode ser negativa')
+        }    
+        mutate({nome, descricao, quantidade})
     }
 
     useEffect(() => {
         if(isSuccess){
             closeCreate()          
         } 
-               
+
     }, [isSuccess])
 
 
@@ -65,7 +68,7 @@ export function Create({closeCreate}: CreateProps) {
                 <form className="creatInputs">
                     <Input label="Nome" value={nome} updateValue={setNome}/>
                     <Input label="Descrição" value={descricao} updateValue={setDescricao}/>
-                    <Input label="Quantidade" value={quantidade} updateValue={setQuantidade}/>
+                    <Input type={"number"} label="Quantidade" value={quantidade} updateValue={setQuantidade}/>
                 </form>
                 <button onClick={submit} className="btn-create">Salvar</button>
             </div>

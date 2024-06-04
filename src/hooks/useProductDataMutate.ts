@@ -6,7 +6,7 @@ import { fatchData } from "./useProductData";
 
 const API_URL = 'http://localhost:8080';
 
-const postData = async (data : ProductData) => {
+const postData = async (data : Omit<ProductData,'id'>) => {
     const {data : products} = await fatchData();
     const verification = products.find(p => p.nome.toLowerCase() == data.nome.toLowerCase() && p.descricao.toLowerCase() == data.descricao.toLowerCase());
     if (verification){
