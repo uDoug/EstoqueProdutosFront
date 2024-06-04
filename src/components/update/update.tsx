@@ -71,7 +71,7 @@ export function Update({closeUpdate,id,...old}: UpdateProps) {
               updateData(productData)  
               Swal.fire({
                 title: "Atualizado!",
-                text: "O produto foi deletado com sucesso",
+                text: "O produto foi atualizado com sucesso",
                 icon: "success"
               });
             }
