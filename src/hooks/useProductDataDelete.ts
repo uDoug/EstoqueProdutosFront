@@ -2,7 +2,7 @@ import axios, { AxiosPromise } from "axios"
 //import { ProductData } from "../interface/ProductData";
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
-const API_URL = 'http://estoqueprodutos-production.up.railway.app';
+const API_URL = 'https://estoqueprodutos-production.up.railway.app';
 
 
 
