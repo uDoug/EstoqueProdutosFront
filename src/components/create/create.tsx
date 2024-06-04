@@ -34,7 +34,7 @@ export function Create({closeCreate}: CreateProps) {
 
     const [nome, setNome] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [quantidade, setQuantidade] = useState(Number);
+    const [quantidade, setQuantidade] = useState();
     const  { mutate, isSuccess } = useProductDataMutate(); 
 
     function submit() {
@@ -68,7 +68,7 @@ export function Create({closeCreate}: CreateProps) {
                 <form className="creatInputs">
                     <Input label="Nome" value={nome} updateValue={setNome}/>
                     <Input label="Descrição" value={descricao} updateValue={setDescricao}/>
-                    <Input type={"number"} label="Quantidade" value={quantidade} updateValue={setQuantidade}/>
+                    <Input type={"number"} label="Quantidade" value={quantidade || ""} updateValue={setQuantidade}/>
                 </form>
                 <button onClick={submit} className="btn-create">Salvar</button>
             </div>
